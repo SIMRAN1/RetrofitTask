@@ -1,0 +1,50 @@
+package com.redcarpet.in.retrofittask;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.TextView;
+
+/**
+ * Created by simran on 5/25/2017.
+ */
+
+public class SplashActivity extends AppCompatActivity {
+    TextView redcarpet;
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.splash);
+        redcarpet=(TextView)findViewById(R.id.redcarpet);
+        AlphaAnimation fadeOut = new AlphaAnimation(0.0f, 1.0f);
+        AlphaAnimation fadeIn = new AlphaAnimation(1.0f, 0.0f);
+        redcarpet.startAnimation(fadeIn);
+        redcarpet.startAnimation(fadeOut);
+        fadeIn.setDuration(500);
+        fadeIn.setFillAfter(true);
+        fadeOut.setDuration(1000);
+        fadeOut.setFillAfter(true);
+        fadeOut.setStartOffset(500 + fadeIn.getStartOffset());
+        fadeOut.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+    }
+}
