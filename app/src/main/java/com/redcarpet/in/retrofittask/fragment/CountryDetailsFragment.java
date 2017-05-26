@@ -1,4 +1,4 @@
-package com.redcarpet.in.retrofittask;
+package com.redcarpet.in.retrofittask.fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.redcarpet.in.retrofittask.R;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -20,6 +23,7 @@ public class CountryDetailsFragment extends Fragment {
     String FlagUrl, Country, Rank,Population;
     ImageView CountryFlag;
     TextView CountryName,CountryRank,CountryPopulation;
+    ProgressBar pb;
 
     @Nullable
     @Override
@@ -27,6 +31,7 @@ public class CountryDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.country_details_fragment, container, false);
+        pb=(ProgressBar)view.findViewById(R.id.progressbar);
 
         Bundle bundle = getArguments();
         if(bundle!=null) {
@@ -40,7 +45,17 @@ public class CountryDetailsFragment extends Fragment {
         CountryRank=(TextView)view.findViewById(R.id.rank_value);
         CountryPopulation=(TextView)view.findViewById(R.id.population_value);
         CountryFlag=(ImageView)view.findViewById(R.id.imageFlag);
-        Picasso.with(getActivity()).load(FlagUrl).resize(240, 120).into(CountryFlag);
+        Picasso.with(getActivity()).load(FlagUrl).resize(240, 120).into(CountryFlag, new Callback() {
+            @Override
+            public void onSuccess() {
+                pb.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
         CountryName.setText(Country);
         CountryRank.setText(Rank);
         CountryPopulation.setText(Population);

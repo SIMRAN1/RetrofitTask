@@ -1,4 +1,4 @@
-package com.redcarpet.in.retrofittask;
+package com.redcarpet.in.retrofittask.utils;
 
 /**
  * Created by simran on 5/24/2017.
@@ -8,7 +8,6 @@ package com.redcarpet.in.retrofittask;
 
         import java.util.ArrayList;
         import java.util.HashMap;
-        import java.util.List;
         import java.util.Map;
 
 public class Model {

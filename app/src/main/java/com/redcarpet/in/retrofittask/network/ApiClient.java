@@ -1,4 +1,4 @@
-package com.redcarpet.in.retrofittask;
+package com.redcarpet.in.retrofittask.network;
 
 /**
  * Created by simran on 5/24/2017.

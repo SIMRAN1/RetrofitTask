@@ -47,6 +47,14 @@
         app:layout_constraintGuide_percent="0.5"
         android:orientation="horizontal"
         />
+    <ProgressBar
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/progressbar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline17"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <ImageView
         android:id="@+id/imageFlag"
@@ -68,7 +76,7 @@
         android:layout_height="0dp"
         android:layout_width="0dp"
         app:layout_constraintRight_toLeftOf="@+id/guideline10"
-        android:background="@drawable/det"
+        android:background="@drawable/details"
         android:layout_marginRight="0dp"
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -144,7 +152,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="COUNTRY"
+            android:text="@string/country"
             android:textColor="#000000"
             android:textAlignment="center"
             android:gravity="center"
@@ -162,7 +170,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="value"
+            android:text="@string/value"
             android:id="@+id/country_value"
             android:textAlignment="center"
             android:gravity="center"
@@ -180,7 +188,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="POPULATION"
+            android:text="@string/population"
             android:textAlignment="center"
             android:gravity="center"
             android:textColor="#000000"
@@ -198,7 +206,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="value"
+            android:text="@string/value"
             android:id="@+id/population_value"
             android:textAlignment="center"
             android:gravity="center"
@@ -216,7 +224,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="RANK"
+            android:text="@string/rank"
             android:textColor="#000000"
             android:textAlignment="center"
             android:gravity="center"
@@ -234,7 +242,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="value"
+            android:text="@string/value"
             android:id="@+id/rank_value"
             android:textAlignment="center"
             android:gravity="center"

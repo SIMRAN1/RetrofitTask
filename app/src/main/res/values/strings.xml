@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RetrofitTask</string>
+    <string name="country">COUNTRY</string>
+    <string name="value">value</string>
+    <string name="population">POPULATION</string>
+    <string name="rank">RANK</string>
 </resources>

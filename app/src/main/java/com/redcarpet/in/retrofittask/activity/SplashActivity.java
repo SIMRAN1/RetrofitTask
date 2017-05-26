@@ -1,4 +1,4 @@
-package com.redcarpet.in.retrofittask;
+package com.redcarpet.in.retrofittask.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,9 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
+
+import com.redcarpet.in.retrofittask.R;
+import com.redcarpet.in.retrofittask.activity.MainActivity;
 
 /**
  * Created by simran on 5/25/2017.

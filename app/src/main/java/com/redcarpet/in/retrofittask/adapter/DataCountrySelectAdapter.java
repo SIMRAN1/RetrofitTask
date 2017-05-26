@@ -1,4 +1,4 @@
-package com.redcarpet.in.retrofittask;
+package com.redcarpet.in.retrofittask.adapter;
 
 /**
  * Created by simran on 5/25/2017.
@@ -13,24 +13,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
+import com.redcarpet.in.retrofittask.fragment.CountryDetailsFragment;
+import com.redcarpet.in.retrofittask.activity.MainActivity;
+import com.redcarpet.in.retrofittask.R;
+import com.redcarpet.in.retrofittask.utils.Worldpopulation;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static android.R.attr.fragment;
-
 
 public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySelectAdapter.ViewHolder> {
-    private ArrayList<Worldpopulation> user_details;
+    private ArrayList<Worldpopulation> countrydetails;
     Context context;
     MainActivity mainActivity;
     int position;
 
 
-    public DataCountrySelectAdapter(Context context, ArrayList<Worldpopulation> user_details, MainActivity mainActivity) {
-        this.user_details = user_details;
+    public DataCountrySelectAdapter(Context context, ArrayList<Worldpopulation> countrydetails, MainActivity mainActivity) {
+        this.countrydetails = countrydetails;
         this.context=context;
         this.mainActivity=mainActivity;
 
@@ -40,27 +43,37 @@ public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySe
     public DataCountrySelectAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 
 
-            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row, viewGroup, false);
+            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_country, viewGroup, false);
             return new ViewHolder(view);
 
 
     }
 
     @Override
-    public void onBindViewHolder(DataCountrySelectAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final DataCountrySelectAdapter.ViewHolder viewHolder, int i) {
 
         position=i;
-           Picasso.with(context).load(user_details.get(i).getFlag()).resize(240, 120).into(viewHolder.flag_img);
-        String flagurl = user_details.get(i).getFlag();
+           Picasso.with(context).load(countrydetails.get(i).getFlag()).resize(240, 120).into(viewHolder.flag_img, new Callback() {
+               @Override
+               public void onSuccess() {
+                   viewHolder.pb.setVisibility(View.GONE);
+               }
+
+               @Override
+               public void onError() {
+
+               }
+           });
+        String flagurl = countrydetails.get(i).getFlag();
 
         viewHolder.setFlag(flagurl);
-        String name = user_details.get(i).getCountry();
+        String name = countrydetails.get(i).getCountry();
 
         viewHolder.setName(name);
-        int rank = user_details.get(i).getRank();
+        int rank = countrydetails.get(i).getRank();
 
         viewHolder.setRank(rank);
-        String population = user_details.get(i).getPopulation();
+        String population = countrydetails.get(i).getPopulation();
 
         viewHolder.setPopulation(population);
 
@@ -69,13 +82,14 @@ public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySe
 
     @Override
     public int getItemCount() {
-        return user_details.size();
+        return countrydetails.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         FragmentManager fragmentManager;
         FragmentTransaction fragmentTransaction;
         Bundle args;
+        ProgressBar pb;
         CountryDetailsFragment fragment;
         private ImageView flag_img;
         String flag,name,population;
@@ -86,6 +100,7 @@ public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySe
 
             super(view);
             flag_img = (ImageView) view.findViewById(R.id.imageFlag);
+            pb=(ProgressBar)view.findViewById(R.id.progressbar);
            flag_img.setOnClickListener(this);
 
         }
@@ -119,7 +134,7 @@ public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySe
             fragment.setArguments(args);
             fragmentTransaction
                     .setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right)
-                    .replace(R.id.fragment_container,fragment)
+                    .replace(R.id.fragment_container,fragment).addToBackStack(null)
                     .commit();
 
         }
