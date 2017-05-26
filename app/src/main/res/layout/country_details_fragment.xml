@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:clickable="true"
     android:layout_width="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="#ecf0f1"
     android:layout_height="match_parent">
 
     <android.support.constraint.Guideline
@@ -67,6 +68,7 @@
         android:layout_height="0dp"
         android:layout_width="0dp"
         app:layout_constraintRight_toLeftOf="@+id/guideline10"
+        android:background="@drawable/det"
         android:layout_marginRight="0dp"
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -80,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline18"
-            app:layout_constraintGuide_percent="0"
+            app:layout_constraintGuide_percent="0.08"
             android:orientation="horizontal"
             />
         <android.support.constraint.Guideline
@@ -122,14 +124,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline201"
-            app:layout_constraintGuide_percent="0.1"
+            app:layout_constraintGuide_percent="0.04"
             android:orientation="vertical"
             />
         <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline202"
-            app:layout_constraintGuide_percent="0.4"
+            app:layout_constraintGuide_percent="0.47"
             android:orientation="vertical"
             />
         <android.support.constraint.Guideline
@@ -143,6 +145,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="COUNTRY"
+            android:textColor="#000000"
             android:textAlignment="center"
             android:gravity="center"
             android:textSize="20dp"
@@ -152,7 +155,7 @@
             app:layout_constraintLeft_toLeftOf="@id/guideline201"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline109"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline18"
             android:layout_marginTop="8dp"
             app:layout_constraintVertical_bias="0.139"
             app:layout_constraintHorizontal_bias="0.0" />
@@ -170,16 +173,17 @@
             app:layout_constraintLeft_toLeftOf="@id/guideline202"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline109"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline18"
             android:layout_marginTop="8dp"
             app:layout_constraintVertical_bias="0.139"
             app:layout_constraintHorizontal_bias="0.0" />
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Rank"
+            android:text="POPULATION"
             android:textAlignment="center"
             android:gravity="center"
+            android:textColor="#000000"
             android:textSize="20dp"
             app:layout_constraintRight_toLeftOf="@+id/guideline202"
             android:layout_marginRight="0dp"
@@ -195,7 +199,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="value"
-            android:id="@+id/rank_value"
+            android:id="@+id/population_value"
             android:textAlignment="center"
             android:gravity="center"
             android:textSize="20dp"
@@ -212,10 +216,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="POPULATION"
+            android:text="RANK"
+            android:textColor="#000000"
             android:textAlignment="center"
             android:gravity="center"
-            android:textSize="15dp"
+            android:textSize="25dp"
             app:layout_constraintRight_toLeftOf="@+id/guideline202"
             android:layout_marginRight="0dp"
             android:layout_marginLeft="0dp"
@@ -230,10 +235,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="value"
-            android:id="@+id/population_value"
+            android:id="@+id/rank_value"
             android:textAlignment="center"
             android:gravity="center"
-            android:textSize="15dp"
+            android:textSize="20dp"
             app:layout_constraintRight_toLeftOf="@+id/guideline21"
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"

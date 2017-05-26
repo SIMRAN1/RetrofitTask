@@ -1,5 +1,6 @@
 package com.redcarpet.in.retrofittask;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,7 @@ public class CountryDetailsFragment extends Fragment {
             Rank = bundle.getString("rank");
             Population = bundle.getString("population");
         }
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/CarnevaleeFreakshow.ttf");
         CountryName=(TextView)view.findViewById(R.id.country_value);
         CountryRank=(TextView)view.findViewById(R.id.rank_value);
         CountryPopulation=(TextView)view.findViewById(R.id.population_value);
@@ -42,6 +44,9 @@ public class CountryDetailsFragment extends Fragment {
         CountryName.setText(Country);
         CountryRank.setText(Rank);
         CountryPopulation.setText(Population);
+        CountryName.setTypeface(type);
+        CountryRank.setTypeface(type);
+        CountryPopulation.setTypeface(type);
         return view;
     }
 }
