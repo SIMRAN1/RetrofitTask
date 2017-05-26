@@ -29,7 +29,6 @@ public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySe
     private ArrayList<Worldpopulation> countrydetails;
     Context context;
     MainActivity mainActivity;
-    int position;
 
 
     public DataCountrySelectAdapter(Context context, ArrayList<Worldpopulation> countrydetails, MainActivity mainActivity) {
@@ -52,7 +51,6 @@ public class DataCountrySelectAdapter extends RecyclerView.Adapter<DataCountrySe
     @Override
     public void onBindViewHolder(final DataCountrySelectAdapter.ViewHolder viewHolder, int i) {
 
-        position=i;
            Picasso.with(context).load(countrydetails.get(i).getFlag()).resize(240, 120).into(viewHolder.flag_img, new Callback() {
                @Override
                public void onSuccess() {

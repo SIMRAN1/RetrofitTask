@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Model> call, Response<Model> response) {
                     worldpopulation = response.body().getWorldpopulation();
-                    Log.d(TAG, "Number of movies received: " + worldpopulation.size() + response.body());
+                    Log.d(TAG, "Number of country details received: " + worldpopulation.size() + response.body());
                     loading.dismiss();
                     initViews();
                 }
